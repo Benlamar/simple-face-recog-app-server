@@ -26,22 +26,3 @@ const handleSigin = (db, bcrypt)=>(req, res)=>{ //calling the (req, res) *usign 
 module.exports = {
     handleSigin:handleSigin
 }
-    
-
-    // if (email === database.users[0].email) {
-    //     bcrypt.compare(password, database.users[0].password)
-    //         .then(function (result) {
-    //             res.json(database.users[0])
-    //         });
-    // } else {
-    //     res.status(400).json('error logging in');
-    // }
-
-
-    // if (req.body.email === database.users[0].email &&
-    //     req.body.password === database.users[0].password) {
-    //     res.json('signing in ... Successful')
-    // }
-    // else {
-    //     res.status(400).json('error logging in');
-    // }

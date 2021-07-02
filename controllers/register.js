@@ -6,15 +6,6 @@ const handleRegister = (req, res, db, bcrypt) => {
         return res.status(400).json('Incorrect kind of form fill')
     }
     const hash = bcrypt.hashSync(password, saltRounds);
-    // Store hash in your password DB.
-    // database.users.push({
-    //     id: 125,
-    //     name: name,
-    //     email: email,
-    //     password: hash,
-    //     entries: 0,
-    //     joined: new Date()
-    // })
 
     db.transaction(trx => {
         trx.insert({
@@ -39,7 +30,6 @@ const handleRegister = (req, res, db, bcrypt) => {
         .catch(trx.rollback)
     })
     .catch(err=>res.status(400).json('unable to register'))
-    // res.json(database.users[database.users.length - 1])
 }
 
 module.exports = {

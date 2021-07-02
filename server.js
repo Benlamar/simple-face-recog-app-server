@@ -23,38 +23,14 @@ const db = knex({
     }
 });
 
-/*const database = {
-    users: [
-        {
-            id: 123,
-            name: 'John',
-            email: 'john@gmail.com',
-            password: '$2b$10$ql2LnsJEQuLhmJmGsq028O6W7jtvTG8VHYOIBYH20NAa1UrLSIHjy',
-            entries: 0,
-            joined: new Date()
-        },
-        {
-            id: 124,
-            name: 'Sally',
-            email: 'sally@gmail.com',
-            password: 'sallypassword',
-            entries: 0,
-            joined: new Date()
-        }
-    ]
-};*/
-
 app.get('/', (req, res) => {
-    db.select()
-        .from('users')
-        .then(user => res.send(user))
-        .catch(err => res.status(404).json('Error'))
+    res.send("It is OK")
 });
 
 
 //For signing in
 app.post('/signin',
-    signin.handleSigin(db, bcrypt) //using advance function, since (req, res) will be sent as a function. *check the signin.js in the controlls
+    signin.handleSigin(db, bcrypt) 
 );
 
 //For register
@@ -76,6 +52,6 @@ app.post('/imageurl', (req, res) => {
     image.handleApiCall(req, res)
 })
 
-app.listen(3000, () =>
+app.listen(process.env.PORT || 3000, () =>
     console.log('app, running')
 );

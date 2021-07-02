@@ -17,13 +17,3 @@ const handleProfile = (req, res, db) => {
 module.exports = {
     handleProfile: handleProfile
 }
-
-    // database.users.forEach(user => {
-    //     if (user.id === id) {
-    //         found = true;
-    //         return res.json(user);
-    //     }
-    // });
-    // if (!found) {
-    //     res.status(404).json('Not Found');
-    // }

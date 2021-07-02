@@ -5,7 +5,7 @@ const app = new Clarifai.App({
 });
 
 const handleApiCall = (req, res)=>{
-    app.models.predict(/*'aaa03c23b3724a16a56b629203edc62c'*/'f76196b43bbd45c99b4f3cd8e8b40a8a',
+    app.models.predict('f76196b43bbd45c99b4f3cd8e8b40a8a',
     req.body.input)
     .then(data=>res.json(data))
     .catch(err=>res.status(400).json('Unable to work with api'))
@@ -28,15 +28,3 @@ module.exports = {
     handleImage: handleImage,
     handleApiCall: handleApiCall
 }
-
- // let found = false;
-    // database.users.forEach(user => {
-    //     if (user.id === id) {
-    //         found = true;
-    //         user.entries++;
-    //         return res.json(user.entries);
-    //     }
-    // });
-    // if (!found) {
-    //     res.status(404).json('Not Found');
-    // }
